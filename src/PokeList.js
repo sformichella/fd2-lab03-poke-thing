@@ -7,8 +7,16 @@ export default class PokeList extends Component {
 
         const filteredPokemon = this.props.data.filter(poke => {
             if (!this.props.textInput) return true;
+
+            const convertCriterion= {
+                'Name': 'pokemon',
+                'Type One': 'type_1',
+                'Type Two': 'type_2'
+            }
+
+            const criterion = convertCriterion[this.props.parameter]
     
-            return poke.pokemon === this.props.textInput;
+            return poke[criterion] === this.props.textInput;
         })
 
         return (

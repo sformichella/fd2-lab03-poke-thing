@@ -12,7 +12,7 @@ export default class App extends Component {
 
   state = {
     currentTextInput: '',
-    currentSearchParam: '',
+    currentSearchParam: 'Name',
     passedTextInput: '',
     passedSearchParamter: '',
   }
@@ -22,7 +22,7 @@ export default class App extends Component {
 
     this.setState({
       currentSearchParam: parameter
-    })
+	})
   }
 
   handleInputChange = e => {
@@ -51,29 +51,34 @@ export default class App extends Component {
 
   render() {
     return (
-      <>
-        <Header />
-        <div className="main">
-          <div>
-            <p>Search Criteria</p>
-            <SearchSelections 
-              criteria = {this.searchCriteria}
-              handler = {this.handleParameterChange}
-            />
-            <SearchInput 
-              handler = {this.handleInputChange}
-            />
-            <SearchButton 
-              handler = {this.handleSearchSubmit}
-            />
-          </div>
-          <PokeList 
-            data = {pokeData}
-            textInput = {this.state.passedTextInput}
-            parameter = {this.state.passedSearchParam}
-          />
-        </div>
-      </>
+		<>
+			<Header />
+
+			<div className="main">
+				<div className="search-criteria">
+					<p>Search Criteria</p>
+
+					<SearchSelections 
+						criteria = {this.searchCriteria}
+						handler = {this.handleParameterChange}
+						selected = {this.state.currentSearchParam}
+					/>
+
+					<SearchInput 
+						handler = {this.handleInputChange}
+					/>
+
+					<SearchButton 
+						handler = {this.handleSearchSubmit}	
+					/>
+				</div>
+				<PokeList 
+					data = {pokeData}
+					textInput = {this.state.passedTextInput}
+					parameter = {this.state.passedSearchParam}
+				/>
+			</div>
+		</>
     )
   }
 }
