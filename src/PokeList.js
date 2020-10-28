@@ -3,17 +3,20 @@ import PokeFrame from './PokeFrame.js';
 
 export default class PokeList extends Component {
 
-    filteredPokemon = this.props.data.filter(pokemon => {
-        return pokemon.pokemon === this.props.state.searchInput;
-    })
-
     render() {
+
+        const filteredPokemon = this.props.data.filter(poke => {
+            if (!this.props.textInput) return true;
+    
+            return poke.pokemon === this.props.textInput;
+        })
 
         return (
             <div className="pokelist">
                 {
-                    this.filteredPokemon.map(pokemon => {
+                    filteredPokemon.map(pokemon => {
                         return <PokeFrame
+                            key = {pokemon.pokemon}
                             name = {pokemon.pokemon}
                             type1 = {pokemon.type_1}
                             type2 = {pokemon.type_2}

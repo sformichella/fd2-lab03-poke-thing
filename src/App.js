@@ -11,14 +11,15 @@ import PokeList from './PokeList.js';
 export default class App extends Component {
 
   state = {
-    currentInputText: '',
+    currentTextInput: '',
     currentSearchParam: '',
-    searchInput: '',
-    searchParamter: '',
+    passedTextInput: '',
+    passedSearchParamter: '',
   }
 
   handleParameterChange = e => {
     const parameter = e.target.value;
+
     this.setState({
       currentSearchParam: parameter
     })
@@ -26,18 +27,19 @@ export default class App extends Component {
 
   handleInputChange = e => {
     const text = e.target.value;
+
     this.setState({
-      currentInputText: text
+      currentTextInput: text
     })
   }
 
   handleSearchSubmit = () => {
-    const newInputText = this.state.currentInputText;
+    const newTextInput = this.state.currentTextInput;
     const newSearchParam = this.state.currentSearchParam;
     
     this.setState({
-      searchInput: newInputText,
-      searchParamter: newSearchParam
+      passedTextInput: newTextInput,
+      passedSearchParam: newSearchParam
     })
   }
 
@@ -67,7 +69,8 @@ export default class App extends Component {
           </div>
           <PokeList 
             data = {pokeData}
-            state = {this.state}
+            textInput = {this.state.passedTextInput}
+            parameter = {this.state.passedSearchParam}
           />
         </div>
       </>

@@ -6,10 +6,9 @@ export default class SearchInput extends Component {
         return (
             <div>
                 <input 
-                    type="text"
-                    onChange = {this.handleInputChange}
-                >
-                </input>
+                    onChange = {this.props.handler}
+                    placeholder = {'All Pokemon'}
+                />
             </div>
         )
     }
