@@ -36,3 +36,80 @@
     transform: rotate(360deg);
   }
 }
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  min-height: 50px;
+}
+
+.header * {
+  margin: 0 10px;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+
+  margin: 10px;
+}
+
+.pokeframe {
+  width: 200px;
+  height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  margin: 10px;
+
+  border: solid 1px blue;
+
+  font-size: 0.7em;
+}
+
+.pokeframe span {
+  max-width: 100px;
+}
+
+.pokeframe * {
+  margin: 0;
+}
+
+.pokeframe section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  width: 100%;
+  height: 100px;
+}
+
+.pokeframe img {
+  height: 100%;
+}
+
+.pokelist-container {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 75%;
+}
+
+.pokelist-container select {
+  width: 100px;
+}
+
+.pokelist {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.search-criteria {
+  min-width: 260px;
+}
