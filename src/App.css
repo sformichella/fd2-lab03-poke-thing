@@ -93,14 +93,21 @@
   height: 100%;
 }
 
+.pokelist-container {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 75%;
+}
+
+.pokelist-container select {
+  width: 100px;
+}
+
 .pokelist {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
-  max-width: 75%;
-
-  margin: 0 10px;
 }
 
 .search-criteria {

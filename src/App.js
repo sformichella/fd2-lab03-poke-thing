@@ -12,9 +12,12 @@ export default class App extends Component {
 
   state = {
     currentTextInput: '',
-    currentSearchParam: 'Name',
+	currentSearchParam: 'Name',
+	
     passedTextInput: '',
-    passedSearchParamter: '',
+	passedSearchParamter: '',
+	
+	sortOrder: '',
   }
 
   handleParameterChange = e => {
@@ -31,6 +34,14 @@ export default class App extends Component {
     this.setState({
       currentTextInput: text
     })
+  }
+
+  sortOrderHandler = e => {
+	  const order = e.target.value
+	console.log(order);
+	  this.setState({
+		  sortOrder: order
+	  })
   }
 
   handleSearchSubmit = () => {
@@ -76,6 +87,8 @@ export default class App extends Component {
 					data = {pokeData}
 					textInput = {this.state.passedTextInput}
 					parameter = {this.state.passedSearchParam}
+					sortOrder = {this.state.sortOrder}
+					sortHandler = {this.sortOrderHandler}
 				/>
 			</div>
 		</>
