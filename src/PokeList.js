@@ -5,8 +5,6 @@ export default class PokeList extends Component {
 
     render() {
 
-        const sortOrder = this.props.sortOrder;
-
         const filteredPokemon = this.props.data.filter(poke => {
             if (!this.props.textInput) return true;
 
@@ -19,25 +17,25 @@ export default class PokeList extends Component {
             const criterion = convertCriterion[this.props.parameter]
     
             return poke[criterion] === this.props.textInput;
+        }).sort((a, b) => {
+            if (this.props.sortOrder === 'ascending') {
+                return a[this.props.sortType] > b[this.props.sortType]
+            } else {
+                return b[this.props.sortType] > a[this.props.sortType]
+            }
         })
 
-        if (sortOrder) {
-            filteredPokemon.sort((a,b) => {
-                const comparison = a.pokemon > b.pokemon
-                if (sortOrder === 'ascending') {
-                    return comparison
-                }
-                if (sortOrder === 'descending') {
-                    return !comparison
-                }
-                return false
-            })
-        }
 
         return (
             <div className="pokelist-container">
-                <select onChange = {this.props.sortHandler}>
+                <select onChange = {this.props.typeHandler}>
                     <option value="">None</option>
+                    <option value="type_1">Type One</option>
+                    <option value="attack">Attack</option>
+                    <option value="defense">Defense</option>
+                    <option value="health">Health</option>
+                </select>
+                <select onChange = {this.props.sortHandler}>
                     <option value="ascending">Asceding</option>
                     <option value="descending">Descending</option>
                 </select>
