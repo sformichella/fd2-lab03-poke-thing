@@ -17,7 +17,7 @@ export default class App extends Component {
     passedTextInput: '',
 	  passedSearchParamter: '',
 	
-    sortOrder: '',
+    sortOrder: 'ascending',
     sortType: ''
   }
 
