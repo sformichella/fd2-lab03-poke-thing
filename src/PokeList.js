@@ -30,6 +30,7 @@ export default class PokeList extends Component {
                 if (sortOrder === 'descending') {
                     return !comparison
                 }
+                return false
             })
         }
 

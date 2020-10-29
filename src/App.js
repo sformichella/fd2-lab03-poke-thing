@@ -38,7 +38,7 @@ export default class App extends Component {
 
   sortOrderHandler = e => {
 	  const order = e.target.value
-	console.log(order);
+	  
 	  this.setState({
 		  sortOrder: order
 	  })
@@ -63,34 +63,34 @@ export default class App extends Component {
   render() {
     return (
 		<>
-			<Header />
+		<Header />
 
-			<div className="main">
-				<div className="search-criteria">
-					<p>Search Criteria</p>
+		<div className="main">
+			<div className="search-criteria">
+				<p>Search Criteria</p>
 
-					<SearchSelections 
-						criteria = {this.searchCriteria}
-						handler = {this.handleParameterChange}
-						selected = {this.state.currentSearchParam}
-					/>
+				<SearchSelections 
+					criteria = {this.searchCriteria}
+					handler = {this.handleParameterChange}
+					selected = {this.state.currentSearchParam}
+				/>
 
-					<SearchInput 
-						handler = {this.handleInputChange}
-					/>
+				<SearchInput 
+					handler = {this.handleInputChange}
+				/>
 
-					<SearchButton 
-						handler = {this.handleSearchSubmit}	
-					/>
-				</div>
-				<PokeList 
-					data = {pokeData}
-					textInput = {this.state.passedTextInput}
-					parameter = {this.state.passedSearchParam}
-					sortOrder = {this.state.sortOrder}
-					sortHandler = {this.sortOrderHandler}
+				<SearchButton 
+					handler = {this.handleSearchSubmit}	
 				/>
 			</div>
+			<PokeList 
+				data = {pokeData}
+				textInput = {this.state.passedTextInput}
+				parameter = {this.state.passedSearchParam}
+				sortOrder = {this.state.sortOrder}
+				sortHandler = {this.sortOrderHandler}
+			/>
+		</div>
 		</>
     )
   }
