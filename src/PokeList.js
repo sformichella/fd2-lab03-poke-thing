@@ -19,9 +19,9 @@ export default class PokeList extends Component {
             return poke[criterion] === this.props.textInput;
         }).sort((a, b) => {
             if (this.props.sortOrder === 'ascending') {
-                return a[this.props.sortType] - b[this.props.sortType]
+                return a[this.props.sortType] > b[this.props.sortType]
             } else {
-                return b[this.props.sortType] - a[this.props.sortType]
+                return b[this.props.sortType] > a[this.props.sortType]
             }
         })
 
@@ -30,6 +30,7 @@ export default class PokeList extends Component {
             <div className="pokelist-container">
                 <select onChange = {this.props.typeHandler}>
                     <option value="">None</option>
+                    <option value="type_1">Type One</option>
                     <option value="attack">Attack</option>
                     <option value="defense">Defense</option>
                     <option value="health">Health</option>
